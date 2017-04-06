@@ -26,21 +26,21 @@ test('visiting /', function(assert) {
   });
 });
 
-test('should redirect to rentals route.', function(assert) {
+test('redirects to rentals route.', function(assert) {
   visit('/');
   andThen(function() {
     assert.equal(currentURL(), '/rentals', 'should redirect automatically');
   });
 });
 
-test('should list available rentals.', function(assert) {
+test('lists available rentals.', function(assert) {
   visit('/');
   andThen(function() {
     assert.equal(find('.listing').length, 3, 'should see 3 listings');
   });
 });
 
-test('should link to information about the company.', function(assert) {
+test('links to information about the company.', function(assert) {
   visit('/');
   click('a:contains("About")');
   andThen(function() {
@@ -48,7 +48,7 @@ test('should link to information about the company.', function(assert) {
   });
 });
 
-test('should link to contact information.', function(assert) {
+test('links to contact information.', function(assert) {
   visit('/');
   click('a:contains("Contact")');
   andThen(function() {
@@ -56,7 +56,7 @@ test('should link to contact information.', function(assert) {
   });
 });
 
-test('should filter the list of rentals by city.', function(assert) {
+test('filters the list of rentals by city.', function(assert) {
   visit('/');
   fillIn('.list-filter input', 'seattle');
   keyEvent('.list-filter input', 'keyup', 69);
@@ -67,7 +67,7 @@ test('should filter the list of rentals by city.', function(assert) {
   });
 });
 
-test('should show details for a specific rental.', function(assert) {
+test('shows details for a specific rental.', function(assert) {
   visit('/rentals');
   click('a:contains("Grand Old Mansion")');
   andThen(function() {
